@@ -8,10 +8,23 @@ using UnityEngine;
 
 namespace CustomLobby
 {
+    /// <summary>
+    /// Represents a utility class that provides functionality for creating and managing network lobbies.
+    /// </summary>
     public class Lobby
     {
+        /// <summary>
+        /// Represents the set of characters used within the custom base58 encoding and decoding logic.
+        /// This variable defines a unique sequence of alphanumeric characters excluding visually similar ones (e.g., '0', 'O', 'I', 'l')
+        /// to ensure better clarity and usability during encoding/decoding of data.
+        /// </summary>
         private static readonly string Alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 
+        /// Creates a local lobby by generating connection data, such as IP address and port,
+        /// and initializes the network transport layer with this information.
+        /// Also, generates a unique lobby code based on the connection data.
+        /// <returns>The generated lobby code for the local lobby as a string. The code can be used for
+        /// joining or sharing the lobby with others.
         public static string CreateLocalLobby()
         {
             string ip = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList
@@ -26,11 +39,23 @@ namespace CustomLobby
             return GenerateLobbyCode(ip, port);
         }
 
+        /// Generates a unique lobby code based on the provided IP address and port number.
+        /// <param name="ip">The IP address used to create the lobby.</param>
+        /// <param name="port">The port number used to create the lobby.</param>
+        /// <return>A string representing the encoded unique lobby code.</return>
         public static string GenerateLobbyCode(string ip, int port)
         {
             return EncodeRoomCode(ip, port);
         }
 
+        /// Encodes the given IP address and port into a room code suitable for distribution in a private lobby setup.
+        /// The encoded room code combines the IP address and port in an optimized format and converts it to a Base58 string representation.
+        /// This method supports private IP address ranges and ensures the accuracy and portability of the room code.
+        /// An exception is thrown for invalid or non-private IP addresses.
+        /// <param name="ip">The private IP address of the server running the lobby, represented as a string.</param>
+        /// <param name="port">The port number of the server running the lobby, represented as an integer.</param>
+        /// <returns>A Base58 encoded string representing the room code, derived from the given IP address and port.</returns>
+        /// <exception cref="Exception">Thrown when the provided IP address is not within the private address ranges.</exception>
         private static string EncodeRoomCode(string ip, int port)
         {
             var ipParts = ip.Split('.').Select(byte.Parse).ToArray();
@@ -64,6 +89,14 @@ namespace CustomLobby
             return Base58Encode(BitConverter.GetBytes(packedValue));
         }
 
+        /// Decodes a given room code into its respective IP address and port.
+        /// The room code is a compressed representation of network connection details
+        /// and can be converted back to retrieve the original data.
+        /// <param name="roomCode">The encoded room code string representing the IP and port.</param>
+        /// <returns>A tuple containing the decoded IP address as a string and the port as an integer.</returns>
+        /// <exception cref="System.Exception">
+        /// Thrown if the room code is invalid or if the IP type specified in the room code is unrecognized.
+        /// </exception>
         public static (string, int) DecodeRoomCode(string roomCode)
         {
             BigInteger number = DecodeBase58(roomCode);
@@ -114,6 +147,11 @@ namespace CustomLobby
             return (ip, port);
         }
 
+        /// <summary>
+        /// Encodes a byte array into a Base58 string representation.
+        /// </summary>
+        /// <param name="bytes">The byte array to encode.</param>
+        /// <returns>A Base58 encoded string representing the input byte array.</returns>
         public static string Base58Encode(byte[] bytes)
         {
             BigInteger number = new BigInteger(bytes.Concat(new byte[] { 0 }).ToArray());
@@ -135,6 +173,9 @@ namespace CustomLobby
             return result.ToString();
         }
 
+        /// Decodes a Base58-encoded string into a BigInteger.
+        /// <param name="input">The Base58-encoded string to decode.</param>
+        /// <returns>A BigInteger representing the decoded value from the Base58 string.</returns>
         private static BigInteger DecodeBase58(string input)
         {
             BigInteger number = 0;
