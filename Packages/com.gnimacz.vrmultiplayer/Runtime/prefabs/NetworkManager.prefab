@@ -50,10 +50,10 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 7809313126811104235}
-    PlayerPrefab: {fileID: 0}
+    PlayerPrefab: {fileID: 7963450176347779964, guid: f6af8de02a928fd49bfa6a63aff0b7e6, type: 3}
     Prefabs:
       NetworkPrefabsLists:
-      - {fileID: 11400000, guid: 283df65b6a35fc945a23ef4f98277621, type: 2}
+      - {fileID: 11400000, guid: fcbd473d8074bf0428b2d400dbb6591f, type: 2}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -118,13 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomCode: 
-  RoomCodeInput: {fileID: 0}
-  RoomCodeTextDisplay: {fileID: 0}
   maxConnections: 4
   transport: {fileID: 0}
+  _isPrivate: 0
   lobbyName: Lobby Name
   lobbyPassword: 
-  LobbyNameInput: {fileID: 0}
-  PasswordInput: {fileID: 0}
-  lobbyDisplayMenu: {fileID: 0}
-  _isPrivate: 0

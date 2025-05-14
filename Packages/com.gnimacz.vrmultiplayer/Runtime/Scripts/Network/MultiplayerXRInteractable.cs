@@ -1,4 +1,6 @@
+using System;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -75,7 +77,7 @@ public class MultiplayerXRInteractable : NetworkBehaviour
             NetworkObject.TryRemoveParent();
         }
     }
-
+    
     public void TryPickup(SelectEnterEventArgs args)
     {
         if (!IsOwner && !_isBeingHeld)
