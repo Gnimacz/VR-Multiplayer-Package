@@ -53,7 +53,7 @@ MonoBehaviour:
     PlayerPrefab: {fileID: 7963450176347779964, guid: f6af8de02a928fd49bfa6a63aff0b7e6, type: 3}
     Prefabs:
       NetworkPrefabsLists:
-      - {fileID: 11400000, guid: fcbd473d8074bf0428b2d400dbb6591f, type: 2}
+      - {fileID: 11400000, guid: b4edf72a7d80f5b41b25e0b0a6d92bb4, type: 2}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -117,9 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e916d45dc70de8c4c8434d47ad65769e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomCode: 
-  maxConnections: 4
-  transport: {fileID: 0}
-  _isPrivate: 0
   lobbyName: Lobby Name
   lobbyPassword: 
+  isPrivate: 0
+  maxPlayers: 4
+  transport: {fileID: 0}
