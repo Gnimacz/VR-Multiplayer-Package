@@ -1,5 +1,9 @@
 # How to install
-Simply copy the `https://github.com/Gnimacz/VR-Multiplayer-Package.git?path=Packages/com.gnimacz.vrmultiplayer` into the unity package manager and it will install itself.
+Simply copy the link below
+```
+https://github.com/Gnimacz/VR-Multiplayer-Package.git?path=Packages/com.gnimacz.vrmultiplayer
+```
+into the unity package manager and it will install itself.
 
 ---
 ![](image.png)![](image-1.png)
