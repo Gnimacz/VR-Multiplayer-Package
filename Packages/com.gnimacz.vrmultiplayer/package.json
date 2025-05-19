@@ -36,7 +36,7 @@
     {
       "displayName": "VR Multiplayer Sample",
       "description": "A sample demonstrating how to use the VR Multiplayer package for Local Connections",
-      "path": "Samples~/BasicNetworking"
+      "path": "Samples/BasicNetworking"
     }
   ]
 }
