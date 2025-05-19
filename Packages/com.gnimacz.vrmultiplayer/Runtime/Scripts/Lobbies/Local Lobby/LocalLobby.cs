@@ -6,7 +6,7 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
-namespace Lobbies.Local_Lobby
+namespace gnimacz.vrmultiplayer.Lobbies.Local_Lobby
 {
     /// <summary>
     /// Represents a utility class that provides functionality for creating and managing network lobbies.

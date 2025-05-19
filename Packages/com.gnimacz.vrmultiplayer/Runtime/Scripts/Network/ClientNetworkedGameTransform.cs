@@ -1,10 +1,12 @@
 using Unity.Netcode.Components;
-using UnityEngine;
 
-public class ClientNetworkedGameObject : NetworkTransform
+namespace gnimacz.vrmultiplayer.Network
 {
-    protected override bool OnIsServerAuthoritative()
+    public class ClientNetworkedGameObject : NetworkTransform
     {
-        return false;
+        protected override bool OnIsServerAuthoritative()
+        {
+            return false;
+        }
     }
 }

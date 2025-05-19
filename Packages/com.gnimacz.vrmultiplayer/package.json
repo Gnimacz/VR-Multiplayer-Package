@@ -2,7 +2,7 @@
   "name": "com.gnimacz.vrmultiplayer",
   "version": "1.0.0",
   "displayName": "VR Multiplayer Package",
-  "description": "This is an example package",
+  "description": "This is a package to help with setting up the basics of multiplayer in an easier and quicker way.",
   "unity": "6000.0",
   "unityRelease": "0b5",
   "documentationUrl": "https://example.com/",
@@ -35,8 +35,8 @@
   "samples": [
     {
       "displayName": "VR Multiplayer Sample",
-      "description": "A sample demonstrating how to use the VR Multiplayer package.",
-      "path": "Samples/BasicMultiplayer"
+      "description": "A sample demonstrating how to use the VR Multiplayer package for Local Connections",
+      "path": "Samples~/BasicNetworking"
     }
   ]
 }

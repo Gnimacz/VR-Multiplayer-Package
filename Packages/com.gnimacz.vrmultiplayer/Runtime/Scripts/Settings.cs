@@ -2,43 +2,46 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class BoolPreference
+namespace VRMultiplayer.Editor
 {
-    public string key { get; private set; }
-    public bool defaultValue { get; private set; }
-
-    public BoolPreference(string key, bool defaultValue)
+    public class BoolPreference
     {
-        this.key = key;
-        this.defaultValue = defaultValue;
-    }
+        public string key { get; private set; }
+        public bool defaultValue { get; private set; }
 
-    private bool? valueCache = null;
-
-    public bool Value
-    {
-        get
+        public BoolPreference(string key, bool defaultValue)
         {
-            if (valueCache == null)
-                valueCache = EditorPrefs.GetBool(key, defaultValue);
-
-            return (bool)valueCache;
+            this.key = key;
+            this.defaultValue = defaultValue;
         }
-        set
+
+        private bool? valueCache = null;
+
+        public bool Value
         {
-            if (valueCache == value)
-                return;
+            get
+            {
+                if (valueCache == null)
+                    valueCache = EditorPrefs.GetBool(key, defaultValue);
 
-            EditorPrefs.SetBool(key, value);
-            valueCache = value;
-            Debug.Log("Editor preference updated. key: " + key + ", value: " + value);
+                return (bool)valueCache;
+            }
+            set
+            {
+                if (valueCache == value)
+                    return;
+
+                EditorPrefs.SetBool(key, value);
+                valueCache = value;
+                Debug.Log("Editor preference updated. key: " + key + ", value: " + value);
+            }
         }
-    }
 
-    public void ClearValue()
-    {
-        EditorPrefs.DeleteKey(key);
-        valueCache = null;
+        public void ClearValue()
+        {
+            EditorPrefs.DeleteKey(key);
+            valueCache = null;
+        }
     }
 }
 
@@ -48,10 +51,10 @@ namespace VRMultiplayer.Editor
     {
         public static BoolPreference UseOnlineLobby =
             new("UseOnlineLobby", false);
-        
+
         public static BoolPreference StartInSinglePlayer =
             new("StartInSinglePlayer", false);
-        
+
         public static BoolPreference ShowDebugInformation =
             new("ShowDebugInformation", false);
 
@@ -71,9 +74,8 @@ namespace VRMultiplayer.Editor
             StartInSinglePlayer.Value = EditorGUILayout.Toggle("Start in Single Player", StartInSinglePlayer.Value);
             ShowDebugInformation.Value = EditorGUILayout.Toggle("Show Debug Information", ShowDebugInformation.Value);
 
-            if (GUILayout.Button("Save"))
+            if (GUILayout.Button("Close"))
             {
-                Debug.Log("Settings saved.");
                 Close();
             }
         }
