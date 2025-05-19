@@ -1,0 +1,18 @@
+{
+    "name": "gnimacz.vrmultiplayer.Editor",
+    "rootNamespace": "gnimacz.vrmultiplayer",
+    "references": [
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:fe26c6de10e6d884b821a602d95aba12"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

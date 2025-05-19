@@ -179,6 +179,7 @@ public static class NetworkedGameObjectEditor
             }
 
             var interactable = Undo.AddComponent<MultiplayerXRInteractable>(go);
+            go.GetComponent<NetworkObject>().DontDestroyWithOwner = true;
             Debug.Log("Added MultiplayerXRInteractable");
         }
         else
