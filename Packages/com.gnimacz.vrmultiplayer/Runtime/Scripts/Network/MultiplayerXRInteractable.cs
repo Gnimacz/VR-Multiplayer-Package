@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using Unity.Netcode;
-using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using VRMultiplayer.Editor;
 
 [RequireComponent(typeof(XRBaseInteractable))]
 [AddComponentMenu("Multiplayer/Network Interactable")]
@@ -30,7 +29,10 @@ public class MultiplayerXRInteractable : NetworkBehaviour
     {
         // Cache the initial kinematic state
         initialKinematicState ??= GetComponent<Rigidbody>().isKinematic;
-        Debug.Log($"Initial Kinematic State for {gameObject.name}: {initialKinematicState.Value}");
+#if UNITY_EDITOR
+        if (Settings.ShowDebugInformation.Value)
+            Debug.Log($"Initial Kinematic State for {gameObject.name}: {initialKinematicState.Value}");
+#endif
     }
 
     private void Start()
@@ -49,7 +51,10 @@ public class MultiplayerXRInteractable : NetworkBehaviour
 
         if (initialKinematicState.HasValue)
         {
-            Debug.Log("Initial kinematic state: " + initialKinematicState.Value);
+#if UNITY_EDITOR
+            if (Settings.ShowDebugInformation.Value)
+                Debug.Log("Initial kinematic state: " + initialKinematicState.Value);
+#endif
         }
     }
 
@@ -87,7 +92,10 @@ public class MultiplayerXRInteractable : NetworkBehaviour
 
     public void TryPickup(SelectEnterEventArgs args)
     {
-        Debug.Log($"[{gameObject.name}] Attempting pickup. IsOwner: {IsOwner}, IsBeingHeld: {isBeingHeld.Value}");
+#if UNITY_EDITOR
+        if (Settings.ShowDebugInformation.Value)
+            Debug.Log($"[{gameObject.name}] Attempting pickup. IsOwner: {IsOwner}, IsBeingHeld: {isBeingHeld.Value}");
+#endif
         if (!IsOwner && !isBeingHeld.Value)
         {
             RequestOwnershipServerRPC(NetworkManager.Singleton.LocalClientId);
@@ -137,7 +145,9 @@ public class MultiplayerXRInteractable : NetworkBehaviour
 
     private void EnableOrDisableGrabInteractable(bool enable)
     {
-        Debug.Log($"Setting grab interactable enabled to: {!enable}");
+#if UNITY_EDITOR
+        if (Settings.ShowDebugInformation.Value) Debug.Log($"Setting grab interactable enabled to: {!enable}");
+#endif
         if (grabInteractable != null && !IsOwner)
         {
             grabInteractable.enabled = !enable;

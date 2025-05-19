@@ -1,41 +1,42 @@
 {
-    "name": "com.gnimacz.vrmultiplayer",
-    "version": "1.0.0",
-    "displayName": "VR Multiplayer Package",
-    "description": "This is an example package",
-    "unity": "6000.0",
-    "unityRelease": "0b5",
-    "documentationUrl": "https://example.com/",
-    "changelogUrl": "https://example.com/changelog.html",
-    "licensesUrl": "https://example.com/licensing.html",
-    "dependencies": {
-        "com.unity.netcode.gameobjects": "2.3.1",
-        "com.unity.xr.interaction.toolkit": "3.0.7",
-        "com.unity.xr.openxr": "1.14.0"
-    },
-    "keywords": [
-        "VR",
-        "Multiplayer",
-        "Networking",
-        "Unity",
-        "XR",
-        "OpenXR",
-        "Netcode",
-        "GameObjects",
-        "XR Interaction Toolkit",
-        "Unity XR",
-        "Unity Multiplayer"
-    ],
-    "author": {
-        "name": "Paul-Maikel van Barele",
-        "email": "pvbarele@gmail.com",
-        "url": "https://www.Gnimacz.nl"
-    },
-    "samples": [
-        {
-            "displayName": "VR Multiplayer Sample",
-            "description": "A sample demonstrating how to use the VR Multiplayer package.",
-            "path": "Samples/BasicMultiplayer"
-        }
-    ]
+  "name": "com.gnimacz.vrmultiplayer",
+  "version": "1.0.0",
+  "displayName": "VR Multiplayer Package",
+  "description": "This is an example package",
+  "unity": "6000.0",
+  "unityRelease": "0b5",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "dependencies": {
+    "com.unity.netcode.gameobjects": "2.3.1",
+    "com.unity.xr.interaction.toolkit": "3.0.7",
+    "com.unity.xr.openxr": "1.14.0",
+    "com.unity.services.multiplayer": "1.1.2"
+  },
+  "keywords": [
+    "VR",
+    "Multiplayer",
+    "Networking",
+    "Unity",
+    "XR",
+    "OpenXR",
+    "Netcode",
+    "GameObjects",
+    "XR Interaction Toolkit",
+    "Unity XR",
+    "Unity Multiplayer"
+  ],
+  "author": {
+    "name": "Paul-Maikel van Barele",
+    "email": "pvbarele@gmail.com",
+    "url": "https://www.Gnimacz.nl"
+  },
+  "samples": [
+    {
+      "displayName": "VR Multiplayer Sample",
+      "description": "A sample demonstrating how to use the VR Multiplayer package.",
+      "path": "Samples/BasicMultiplayer"
+    }
+  ]
 }
