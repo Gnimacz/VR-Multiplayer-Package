@@ -1,0 +1,17 @@
+{
+    "name": "samples",
+    "rootNamespace": "gnimacz.vrmultiplayer",
+    "references": [
+        "Unity.TextMeshPro",
+        "gnimacz.vrmultiplayer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

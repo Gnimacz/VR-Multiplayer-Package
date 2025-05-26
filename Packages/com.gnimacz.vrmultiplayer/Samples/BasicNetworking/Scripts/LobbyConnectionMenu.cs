@@ -1,9 +1,7 @@
 using gnimacz.vrmultiplayer.Lobbies;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace BasicNetworking.Scripts
+namespace gnimacz.vrmultiplayer.Samples.BasicNetworking.Scripts
 {
     /// <summary>
     /// Represents a menu interface for lobby connection management.

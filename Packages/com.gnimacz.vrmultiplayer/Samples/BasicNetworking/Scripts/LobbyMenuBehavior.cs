@@ -1,10 +1,9 @@
-using System;
 using gnimacz.vrmultiplayer.Lobbies;
 using TMPro;
 using UnityEngine;
 using VRMultiplayer.Editor;
 
-namespace BasicNetworking.Scripts
+namespace gnimacz.vrmultiplayer.Samples.BasicNetworking.Scripts
 {
     /// <summary>
     /// Provides functionality to manage and interact with the lobby interface, including setting lobby parameters
