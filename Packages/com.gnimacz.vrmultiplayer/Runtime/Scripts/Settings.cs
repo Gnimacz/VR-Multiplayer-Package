@@ -70,7 +70,11 @@ namespace VRMultiplayer.Editor
         private void OnGUI()
         {
             GUILayout.Label("Multiplayer Settings", EditorStyles.boldLabel);
-            UseOnlineLobby.Value = EditorGUILayout.Toggle("Use Online Lobby", UseOnlineLobby.Value);
+            UseOnlineLobby.Value =
+                EditorGUILayout.Toggle(
+                    new GUIContent("Use Online Lobby",
+                        "Enable or disable the online lobby feature. When enabled, the game will use an online lobby for multiplayer sessions.\nOtherwise, it will use a local lobby."),
+                    UseOnlineLobby.Value);
             StartInSinglePlayer.Value = EditorGUILayout.Toggle("Start in Single Player", StartInSinglePlayer.Value);
             ShowDebugInformation.Value = EditorGUILayout.Toggle("Show Debug Information", ShowDebugInformation.Value);
 

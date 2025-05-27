@@ -13,6 +13,7 @@ using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using VRMultiplayer.Editor;
 
 namespace gnimacz.vrmultiplayer.Lobbies.Online_Lobby
 {
@@ -121,7 +122,7 @@ namespace gnimacz.vrmultiplayer.Lobbies.Online_Lobby
         /// </remarks>
         private async void Awake()
         {
-            await InitializeServicesAsync();
+            if (Settings.UseOnlineLobby.Value) await InitializeServicesAsync();
             transport = NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>();
         }
 
