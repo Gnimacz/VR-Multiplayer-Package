@@ -236,7 +236,7 @@ namespace gnimacz.vrmultiplayer.Lobbies
 
         public void CloseLobby()
         {
-            if (UseOnline) OnlineLobby.LeaveLobbyAsync(OnlineLobby.CurrentLobby.Id);
+            if (UseOnline) _ = OnlineLobby.LeaveLobbyAsync(OnlineLobby.CurrentLobby.Id);
 
             NetworkManager.Singleton.Shutdown();
             if (Settings.StartInSinglePlayer.Value)

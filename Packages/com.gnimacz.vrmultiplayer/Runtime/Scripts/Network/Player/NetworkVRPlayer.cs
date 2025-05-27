@@ -1,4 +1,6 @@
+using System;
 using Unity.Netcode;
+using UnityEditor;
 using UnityEngine;
 
 namespace gnimacz.vrmultiplayer.Network.Player
@@ -69,24 +71,37 @@ namespace gnimacz.vrmultiplayer.Network.Player
         /// </remarks>
         private void Update()
         {
-            // Update the VRPlayerReference with the current player's transform
-            if (IsOwner)
+            try
             {
-                Root.transform.position = VRPlayerReference.Instance.Root.transform.position ;
-                Root.transform.rotation = VRPlayerReference.Instance.Root.transform.rotation ;
-                Root.transform.localScale = VRPlayerReference.Instance.Root.transform.localScale ;
-            
-                Head.transform.position = VRPlayerReference.Instance.Head.transform.position ;
-                Head.transform.rotation = VRPlayerReference.Instance.Head.transform.rotation ;
-                Head.transform.localScale = VRPlayerReference.Instance.Head.transform.localScale ;
-            
-                LeftHand.transform.position = VRPlayerReference.Instance.LeftHand.transform.position ;
-                LeftHand.transform.rotation = VRPlayerReference.Instance.LeftHand.transform.rotation;
-                LeftHand.transform.localScale = VRPlayerReference.Instance.LeftHand.transform.localScale ;
-            
-                RightHand.transform.position = VRPlayerReference.Instance.RightHand.transform.position ;
-                RightHand.transform.rotation = VRPlayerReference.Instance.RightHand.transform.rotation ;
-                RightHand.transform.localScale = VRPlayerReference.Instance.RightHand.transform.localScale ;
+// Update the VRPlayerReference with the current player's transform
+                if (IsOwner)
+                {
+                    Root.transform.position = VRPlayerReference.Instance.Root.transform.position;
+                    Root.transform.rotation = VRPlayerReference.Instance.Root.transform.rotation;
+                    Root.transform.localScale = VRPlayerReference.Instance.Root.transform.localScale;
+
+                    Head.transform.position = VRPlayerReference.Instance.Head.transform.position;
+                    Head.transform.rotation = VRPlayerReference.Instance.Head.transform.rotation;
+                    Head.transform.localScale = VRPlayerReference.Instance.Head.transform.localScale;
+
+                    LeftHand.transform.position = VRPlayerReference.Instance.LeftHand.transform.position;
+                    LeftHand.transform.rotation = VRPlayerReference.Instance.LeftHand.transform.rotation;
+                    LeftHand.transform.localScale = VRPlayerReference.Instance.LeftHand.transform.localScale;
+
+                    RightHand.transform.position = VRPlayerReference.Instance.RightHand.transform.position;
+                    RightHand.transform.rotation = VRPlayerReference.Instance.RightHand.transform.rotation;
+                    RightHand.transform.localScale = VRPlayerReference.Instance.RightHand.transform.localScale;
+                }
+            }
+            catch (Exception e)
+            {
+                _ = e;
+                if (EditorUtility.DisplayDialog("VRPlayer Update Error",
+                        "Please add a networked VR Origin.\n This can be done in GameObject > XR > XR Origin (Networked)", "OK"))
+                {
+                    // Quit the editor if the user acknowledges the error
+                    EditorApplication.ExitPlaymode();
+                }
             }
         }
     }
