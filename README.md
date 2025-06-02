@@ -4,6 +4,7 @@ Simply copy the link below
 https://github.com/Gnimacz/VR-Multiplayer-Package.git?path=Packages/com.gnimacz.vrmultiplayer
 ```
 into the unity package manager and it will install itself.
+**PLEASE MAKE SURE YOU HAVE THE TEXT MESH PRO ESSENTIALS INSTALLED BEFORE OPENING THE EXAMPLE THAT IS INCLUDED IN THE PACKAGE**
 
 ---
 ![](image.png)![](image-1.png)
