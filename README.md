@@ -1,10 +1,18 @@
 # How to install
-Simply copy the link below
+For more detailed instructions please check out the wiki.
+
+## Installation through the package manager
+The easiest way to install the package is by opening the unity package manager and pasting
 ```
 https://github.com/Gnimacz/VR-Multiplayer-Package.git?path=Packages/com.gnimacz.vrmultiplayer
 ```
 into the unity package manager and it will install itself.
-**PLEASE MAKE SURE YOU HAVE THE TEXT MESH PRO ESSENTIALS INSTALLED BEFORE OPENING THE EXAMPLE THAT IS INCLUDED IN THE PACKAGE**
+
+> [!Warning]
+> Please make sure you have the text mesh pro essentials installed before opening the example that is included in the package
+
+> [!NOTE]
+> After installing, if you are not using the VR template project. Please import the starter assets sample from the XR interaction toolkit package
 
 ---
 ![](image.png)![](image-1.png)
