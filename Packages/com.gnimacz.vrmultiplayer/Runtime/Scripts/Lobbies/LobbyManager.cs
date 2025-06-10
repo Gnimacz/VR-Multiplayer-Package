@@ -175,14 +175,14 @@ namespace gnimacz.vrmultiplayer.Lobbies
             NetworkManager.Singleton.Shutdown();
             await Task.Delay(100);
             string roomCode = LocalLobby.Create();
-            var otherInfo = LocalLobby.DecodeRoomCode(roomCode);
-            NetworkManager.Singleton.GetComponent<UnityTransport>()
-                .SetConnectionData(otherInfo.Item1, (ushort)otherInfo.Item2);
-            NetworkManager.Singleton.StartHost();
 #if UNITY_EDITOR
             if (Settings.ShowDebugInformation.Value)
                 Debug.Log($"Roomcode: {roomCode}");
 #endif
+            var otherInfo = LocalLobby.DecodeRoomCode(roomCode);
+            NetworkManager.Singleton.GetComponent<UnityTransport>()
+                .SetConnectionData(otherInfo.Item1, (ushort)otherInfo.Item2);
+            NetworkManager.Singleton.StartHost();
             return new LobbyCreationData { LocalRoomCode = roomCode };
         }
 

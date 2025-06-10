@@ -3,7 +3,8 @@
     "rootNamespace": "gnimacz.vrmultiplayer",
     "references": [
         "Unity.TextMeshPro",
-        "gnimacz.vrmultiplayer"
+        "gnimacz.vrmultiplayer",
+        "Unity.Netcode.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -99,10 +99,9 @@ namespace gnimacz.vrmultiplayer.Lobbies.Local_Lobby
         /// </exception>
         public static (string, int) DecodeRoomCode(string roomCode)
         {
-            BigInteger number = DecodeBase58(roomCode);
-            var bytes = number.ToByteArray().ToArray();
+            byte[] bytes = DecodeBase58ToBytes(roomCode);
 
-            if (bytes.Length < 4) throw new Exception("Invalid room code");
+            if (bytes.Length < 4) throw new Exception($"Invalid room code. Byte array too short: {bytes.Length}");
 
             uint packedValue = BitConverter.ToUInt32(bytes, 0);
 
@@ -154,7 +153,8 @@ namespace gnimacz.vrmultiplayer.Lobbies.Local_Lobby
         /// <returns>A Base58 encoded string representing the input byte array.</returns>
         public static string Base58Encode(byte[] bytes)
         {
-            BigInteger number = new BigInteger(bytes.Concat(new byte[] { 0 }).ToArray());
+            BigInteger number = new BigInteger(bytes.Concat(new byte[] { 0 }).ToArray(), isUnsigned: true,
+                isBigEndian: true);
 
             StringBuilder result = new StringBuilder();
             while (number > 0)
@@ -185,6 +185,13 @@ namespace gnimacz.vrmultiplayer.Lobbies.Local_Lobby
             }
 
             return number;
+        }
+
+        static byte[] DecodeBase58ToBytes(string input)
+        {
+            // Decode Base58 into BigInteger using helper code
+            BigInteger bi = DecodeBase58(input);
+            return bi.ToByteArray(isUnsigned: true, isBigEndian: true);
         }
     }
 }
